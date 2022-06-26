@@ -3,6 +3,33 @@
     $transport = $gaji->tj_transport * $gaji->hadir;
     $uangMakan = $gaji->uang_makan * $gaji->hadir;
     $totalPenghasilan = $gajiPokok + $transport + $uangMakan;
+
+    if((isset($_GET['bulan']) && $_GET['bulan']!='') && (isset($_GET['tahun']) && $_GET['tahun']!='')){
+        $bulan = $_GET['bulan'];
+        $tahun = $_GET['tahun'];
+        $bulantahun = $bulan.$tahun;
+    }else{
+        $bulan = date('m');
+        $tahun = date('Y');
+        $bulantahun = $bulan.$tahun;
+    }
+
+    $monthName = "default";
+
+    switch ($bulan){ 
+        case 1 : $monthName = "Januari"; break;
+        case 2 : $monthName = "Februari"; break;
+        case 3 : $monthName = "Maret"; break;
+        case 4 : $monthName = "April"; break;
+        case 5 : $monthName = "Mei"; break;
+        case 6 : $monthName = "Juni"; break;
+        case 7 : $monthName = "Juli"; break;
+        case 8 : $monthName = "Agustus"; break;
+        case 9 : $monthName = "September"; break;
+        case 10 : $monthName = "Oktober"; break;
+        case 11 : $monthName = "November"; break;
+        case 12 : $monthName = "Desember"; break;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +55,7 @@
     </div>
     <div>
         <h4 class="text-center" style="font-weight:800; text-decoration: underline;">SLIP GAJI KARYAWAN</h4>
-        <h4 class="text-center">Periode 1 Juni 2022 - 31 Juni 2022</h4>
+        <h4 class="text-center">Periode 1 <?= $monthName . ' ' . $tahun . ' - ' . date("t", strtotime($tahun.'-'.$bulan)) . ' ' . $monthName . ' ' . $tahun ?></h4>
     </div>
 
     <table>
@@ -112,7 +139,7 @@
 
     <div class="d-flex justify-content-end">
         <div style="width:14rem;">
-            <span>Malang, 30 Juni 2022</span>
+            <span>Malang, <?= date("t", strtotime($tahun.'-'.$bulan)) . ' ' . $monthName . ' ' . $tahun ?></span>
             <p>Finance</p>
             <div style="height:4rem;">
                 <!-- tempat ttd -->
