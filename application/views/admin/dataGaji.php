@@ -109,7 +109,7 @@
 		<?php $no=1;foreach($gaji as $g) : ?>
 		<?php 
 			$potongan = $g->alpha * $alpha;
-			$gajiPokok = $g->gaji_pokok * $g->hadir;
+			$gajiPokok = ($g->gaji_pokok_personal ?? $g->gaji_pokok) * $g->hadir;
 			$transport = $g->tj_transport * $g->hadir;
 			$uangMakan = $g->uang_makan * $g->hadir;
 			$total = $gajiPokok + $transport + $uangMakan - $potongan;

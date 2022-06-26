@@ -99,6 +99,7 @@ class dataPegawai extends CI_Controller{
 			$status						= $this->input->post('status');
 			$hak_akses					= $this->input->post('hak_akses');
 			$username					= $this->input->post('username');
+			$gaji_pokok_personal		= $this->input->post('gaji_pokok_personal');
 			$password					= md5($this->input->post('password'));
 			$photo						= $_FILES['photo']['name'];
 			if($photo){
@@ -123,6 +124,7 @@ class dataPegawai extends CI_Controller{
 				'hak_akses'				=>$hak_akses,
 				'username'				=>$username,
 				'password'				=>$password,
+				'gaji_pokok_personal'	=>$gaji_pokok_personal > 0 ? $gaji_pokok_personal : null,
 			);
 
 			$where = array(

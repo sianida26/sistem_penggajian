@@ -86,6 +86,12 @@
                     </select>
                 </div>
 
+				<div class="form-group">
+    				<label>Gaji Pokok</label>
+    				<input type="number" name="gaji_pokok_personal" class="form-control" value="<?php echo $p->gaji_pokok_personal ?>">
+    				<?php echo form_error('gaji_pokok_personal', '<div class="text-small text-danger"></div>') ?>
+    			</div>
+
     			<button type="submit" class="btn btn-primary">Simpan</button>
 
     			
