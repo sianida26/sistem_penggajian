@@ -101,6 +101,7 @@
 			<th class="text-center">Uang Makan</th>
 			<th class="text-center">Potongan</th>
 			<th class="text-center">Total Gaji</th>
+			<th class="text-center">Action</th>
 		</tr>
 
 		<?php foreach ($potongan as $p){
@@ -126,6 +127,11 @@
 			<td>Rp.<?php echo number_format($uangMakan,0,',','.') ?></td>
 			<td>Rp.<?php echo number_format($potongan,0,',','.') ?></td>
 			<td>Rp.<?php echo number_format($total,0,',','.') ?></td>
+			<td>
+				<a class="btn btn-sm btn-primary" href="<?= base_url('admin/dataPenggajian/cetakGajiPegawai?bulan='.$bulan), '&tahun='.$tahun.'&id='.$g->id_pegawai; ?>">
+					<i class="fas fa-print"></i>
+				</a>
+			</td>
 		</tr>
 		<?php endforeach; ?>
 		</table>
